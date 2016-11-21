@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WAndCAssignment.Models.Product>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@section Logged{
+    @if (@Session["MemberName"] != null)
+    {
+        <li>
+            <a>Welcome @Session["MemberName"]</a>
+        </li>
+    }
+}
+
+
+
+
+<ol class="breadcrumb" style="margin-bottom:0;">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Sign Up</a></li>
+    <li class="active">All Products</li>
+</ol>
+
+<div class="container">
+    <h2>All Products List</h2>
+    <div class="row">
+        @foreach (var p in Model)
+        {
+            <form action='@Url.Action("AddItem","Cart")' method="post">
+                <div class="col-md-2 column product-box" id="products">
+                    <img src="~/Content/img/products/@p.ProductImage" width="100%" height="100%" class="img-responsive" />
+                    <hr />
+                    @*hidden input box is used to store the ID of the current PRODUCT*@
+                    <input type="text" name="id" value=@p.ProductID width="200" hidden><br />
+                    <div class="product-title" style="text-decoration:underline;">@p.ProductModel</div>
+                    <p style="font-size:12px; text-transform:lowercase;"><i>Specification:</i> @p.ProductDescription</p>
+                   <p>Quantity: <select name="quantity">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    </p>
+                    <div class="product-price"><div class="pull-right"><input id="Submit1" type="submit" class="btn btn-danger btn-sm" value="Add To Cart"></div><div class="price-text">&euro;@p.ProductPrice</div></div>
+                </div>
+            </form>
+        }
+    </div>
+</div>

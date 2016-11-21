@@ -1,0 +1,192 @@
+﻿@model WAndCAssignment.Models.Customers
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Logged{
+    @if (@Session["MemberName"] != null)
+    {
+        <li>
+            <a>Welcome @Session["MemberName"]</a>
+        </li>
+    }
+}
+
+
+<section id="carousel">
+    @* === Carousel Slider Section ===== *@
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="~/Content/img/img1.jpg" width="100%" />
+            </div>
+
+            <div class="item">
+                <img src="~/Content/img/img2.jpg" width="100%" />
+            </div>
+
+            <div class="item">
+                <img src="~/Content/img/img3.jpg" width="100%" />
+            </div>
+        </div>
+    </div>
+    @*  ==== End *@
+</section>
+
+<section id="intro">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>Deals Of The Weeks</h3>
+            <p><i>cloud, distributed and embedded systems. Our experience and expertise coupled with our broad range of skills uniquely positions us </i></p>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="deals">
+    @* === Log in Section ==== *@
+        <div class="row no-gutter">
+           <div class="col-md-2 img-container">
+               <div class="flip">
+                   <div class="card">
+                       <div class="face front">
+                           <img src="~/Content/img/deals-img/Phone.jpg" />
+                       </div>
+                       <div class="face back">
+                           <a href='@Url.Action("ViewMore","Home")'>
+                               View More
+                           </a> 
+                       </div>
+                   </div>
+               </div> 
+           </div>
+            <div class="col-md-2  img-container">
+                <div class="flip">
+                    <div class="card">
+                        <div class="face front">
+                            <img src="~/Content/img/deals-img/watch.jpg" />
+                        </div>
+                        <div class="face back">
+                            <a href='@Url.Action("ViewMore","Home")'>
+                                View More
+                            </a> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-2  img-container">
+                <div class="flip">
+                    <div class="card">
+                        <div class="face front">
+                            <img src="~/Content/img/deals-img/tablet.jpg" />
+                        </div>
+                        <div class="face back">
+                            <a href='@Url.Action("ViewMore","Home")'>
+                                View More
+                            </a> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-2  img-container">
+                <div class="flip">
+                    <div class="card">
+                        <div class="face front">
+                            <img src="~/Content/img/deals-img/computer.jpg" />
+                        </div>
+                        <div class="face back">
+                            <a href='@Url.Action("ViewMore","Home")'>
+                                View More
+                            </a> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-2  img-container">
+                <div class="flip">
+                    <div class="card">
+                        <div class="face front">
+                            <img src="~/Content/img/deals-img/Keyboard.jpg" />
+                        </div>
+                        <div class="face back">
+                            <a href='@Url.Action("ViewMore","Home")'>
+                                View More
+                            </a> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-2  img-container">
+                <div class="flip">
+                    <div class="card">
+                        <div class="face front">
+                            <img src="~/Content/img/deals-img/console.jpg" />
+                        </div>
+                        <div class="face back">
+                            <a href='@Url.Action("ViewMore","Home")'>
+                                View More
+                            </a> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+           
+        </div>
+</section>
+
+
+
+
+
+<section id="contextInfo" style="clear:both;">
+    @*  === Additional Information Section ===== *@
+        <h3 class="text-center">Award Winning Products</h3>
+        <div class="row">
+            <div class="col-md-4 add-border">
+                <h4><i>Smart Phones</i></h4>
+                    <img src="~/Content/img/smartphone_icon.png" class="img-responsive" style="height:170px; width:250px; margin:0 auto; padding-bottom:10px;"/>
+                <p>
+                    It is a long established fact that a reader will be distracted by the
+                     readable content of a page when looking at its layout. The point of using 
+                    Lorem Ipsum is that it has a more-or-less normal distribution of letters, as 
+                    opposed to using 'Content here, content here', making it look like readable English.</p>
+          
+            </div>
+            <div class="col-md-4 add-border">
+                <h4><i>Electronics</i></h4>
+                <img src="~/Content/img/iconDevices.png" class="img-responsive" style="height:170px; width:250px;  margin:0 auto;"/>
+                    <p>
+                    It is a long established fact that a reader will be distracted by the readable content
+                         of a page when looking at its layout. The point of using Lorem Ipsum is that it
+                         has a more-or-less normal distribution of letters, as opposed to using 
+                        'Content here, content here', making it look like readable English.</p>
+            </div>
+            <div class="col-md-4 add-border">
+                <h4><i>Computers</i></h4>
+                <img src="~/Content/img/iconlaptop.png" class="img-responsive" style="height:170px; width:250px;  margin:0 auto; padding-bottom:10px;" />
+                <p>
+                    It is a long established fact that a reader will be distracted by the readable 
+                    content of a page when looking at its layout. The point of using Lorem Ipsum is 
+                    that it has a more-or-less normal distribution of letters, as opposed to using 
+                    'Content here, content here', making it look like readable English.
+                </p>
+            </div>
+        </div>
+
+   
+
+    @* ==== End ===== *@
+</section>
+
+

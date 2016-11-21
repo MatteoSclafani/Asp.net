@@ -1,0 +1,16 @@
+﻿
+@if (Session["MemberName"] != null)
+{
+    <li>
+        @Html.ActionLink("Log out", "Logout", "Home")
+    </li>
+
+}
+else
+{
+    <li>
+        <a href='@Url.Action("Login","Home")'>
+            Log In &nbsp; <span class="glyphicon glyphicon-user"></span>
+        </a>
+    </li>
+}

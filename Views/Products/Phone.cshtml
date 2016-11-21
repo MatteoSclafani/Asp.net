@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WAndCAssignment.Models.Product>
+@{
+    ViewBag.Title = "Phones";
+}
+
+<ol class="breadcrumb" style="margin-bottom:0;">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Sign Up</a></li>
+    <li><a href="#">All Products</a></li>
+    <li class="active">Phones</li>
+</ol>
+
+<div class="container">
+    <h2>All Phones</h2>
+    <div class="row">
+        @foreach (var prod in Model)
+        {
+            <div class="col-md-2 column product-box" id="products">
+                <img src="~/Content/img/products/@prod.ProductImage" height="100%" width="187px" class="img-responsive" />
+                <hr />
+                <div class="product-title" style="text-decoration:underline;">@prod.ProductBrand</div>
+                <p style="font-size:12px; text-transform:lowercase;"><i>Specification:</i> @prod.ProductDescription</p>
+                <div class="product-price"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button">Buy</a></div><div class="price-text">&euro;@prod.ProductPrice</div></div>
+
+            </div>
+
+        }
+    </div>
+</div>
+
+
+

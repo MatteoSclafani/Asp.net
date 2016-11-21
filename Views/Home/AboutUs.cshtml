@@ -1,0 +1,149 @@
+﻿@model WAndCAssignment.Models.Customers
+
+@{
+    ViewBag.Title = "AboutUs";
+}
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li class="active">About Us</li>
+</ol>
+
+@section Logged{
+    @if (@Session["MemberName"] != null)
+    {
+        <li>
+            <a>Welcome @Session["MemberName"]</a>
+        </li>
+    }
+}
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Sign In</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.Username, new { @class = "form-control", @placeholder = "username" })
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "password" })
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Sign In" />
+                }
+            </div>
+            <div class="modal-footer">
+                <div class="alert-danger"> @ViewData["error"]</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<section id="about-us-intro">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>About Us</h2>
+            <p>We believe rhoncus lectus vehicula fermentum tincidunt. Nunc </p>
+            <p>tincidunt felis pulvinar, mollis sapien ac, malesuada ante</p>
+        </div>
+    </div>
+</section>
+
+<section id="meet-group" class="text-center">
+    <h2>Meet The Team</h2>
+    <p>In vehicula accumsan vestibulum. Sed convallis massa ac nisi sodales, ac commodo nibh eleifend. </p>
+    <p>Vivamus at vestibulum quam. Vivamus feugiat elit et elit viverra, et euismod lorem tincidunt. </p>
+    <p>Suspendisse pharetra feugiat magna.</p>
+</section>
+
+
+
+<section id="team-members">
+       <div class="box-one">
+           <div class="img-team">
+               <img src="~/Content/img/jerick.jpg" class="lead-img-resize" />
+           </div>
+           <div class="description">
+               <h4>Jerick Mamuric</h4>
+               <p><i>Lead Developer</i></p> 
+               <p>Sed vel ultricies quam. Ut lacus odio, cursus in quam sit amet,
+                gravida dapibus ante. Vestibulum viverra imperdiet diam vel condimentum. 
+               Nunc sit amet orci quis mauris mollis sodales. 
+               Sed sed massa non elit interdum porttitor.</p>
+           </div>
+           <div class="team-contact-icons text-center">
+               <ul class="team-social">
+                   <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
+                   <li><a href="#"><i class="fa fa-facebook-official fa-2x"></i></a></li>
+                   <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                   <li><a href="#"><i class="fa fa-whatsapp fa-2x"></i></a></li>
+               </ul>
+           </div>
+       </div>
+    <div class="box-two">
+        <div class="img-team">
+            <img src="~/Content/img/lead-dev.jpg" class="lead-img-resize" />
+        </div>
+        <div class="description">
+            <h4>Anmar Hammadi</h4>
+            <p><i>Lead Developer</i></p>
+            <p>
+                Sed vel ultricies quam. Ut lacus odio, cursus in quam sit amet,
+                gravida dapibus ante. Vestibulum viverra imperdiet diam vel condimentum.
+                Nunc sit amet orci quis mauris mollis sodales.
+                Sed sed massa non elit interdum porttitor.
+            </p>
+           
+        </div>
+        <div class="team-contact-icons text-center">
+            <ul class="team-social">
+                <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
+                <li><a href="#"><i class="fa fa-facebook-official fa-2x"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                <li><a href="#"><i class="fa fa-whatsapp fa-2x"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="ceo">
+        <div class="ceo-image">
+            <img src="~/Content/img/Ceo.jpg"  class="team-img-resize"/>
+        </div>
+        <div class="ceo-description">
+            <h4>Matteo Sclafani</h4>
+            <p><i>Italian Dictator</i></p>
+            <p>
+                Sed vel ultricies quam. Ut lacus odio, cursus in quam sit amet,
+                gravida dapibus ante. Vestibulum viverra imperdiet diam vel condimentum.
+                Nunc sit amet orci quis mauris mollis sodales.
+                Sed sed massa non elit interdum porttitor.
+            </p>
+        </div>
+        <div class="team-contact-icons text-center">
+            <ul class="team-social">
+                <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
+                <li><a href="#"><i class="fa fa-facebook-official fa-2x"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                <li><a href="#"><i class="fa fa-whatsapp fa-2x"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section id="chat" class="text-center">
+    <h1>Want to have a quick chat?</h1>
+    <h3>We are only a phone call away</h3>
+    <h3><a>(01)212-1942</a></h3>
+    <h3>You can also email us</h3>
+    <h2><a>hello@yourdevstudio.com</a></h2>
+</section>

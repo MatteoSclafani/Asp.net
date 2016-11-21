@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Images";
+}
+@section Logged{
+    @if (@Session["MemberName"] != null)
+    {
+        <li>
+            <a>Welcome @Session["MemberName"]</a>
+        </li>
+    }
+}
+
+
+
+
+
+
+<div class="container">
+    <hr />
+
+    <div class="row">
+        <div class="col-md-7">
+            <img src="~/Content/img/Phone-lg.jpg" />
+        </div>
+        <div class="col-md-4" style="padding-top:40px;">
+            <h4>Product Name: Phone</h4>
+            <p><i>Product Price:</i> &euro;400</p>
+            <p><i style="text-decoration:underline;">Product Description:</i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+             <a href='@Url.Action("ViewCart","Cart")' class="btn btn-success" id="btn-buy-now">Add To Cart</a>
+        </div>
+
+    </div>
+
+    <hr />
+
+
+</div>
+

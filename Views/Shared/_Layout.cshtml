@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"  content="Matteo Mart Sells, Top Quality Devices Ranging Phones, Computers 
+          and other electronical components that will take users to a brand new experience, Matteo Mart Offers
+          Not Only Items but also uncomparable experience to its customers" />
+    <title>@ViewBag.Title - Matteo Mart - Electronic Shop </title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico" type="image/x-png">
+    <link rel="icon" href="~/Content/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a href='@Url.Action("Index", "Home")' class="navbar-brand">
+                   <img src="~/Content/img/logo.png" style="height:25px; width:100px;"/>
+               </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index","Home")</li>
+                    <li>@Html.ActionLink("About Us","AboutUs","Home")</li>
+                    @if (Session["MemberName"] == null)
+                    {
+                    <li>@Html.ActionLink("Sign Up", "Register", "Customer")</li>
+                    }
+                    <li>
+                        <a href="#" class="dropdown" data-toggle="dropdown">Products <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href='@Url.Action("Index","Products")'>All Products</a></li>
+                            <li><a href='@Url.Action("Laptop","Products")'>Laptops</a></li>
+                            <li><a href='@Url.Action("Electronic","Products")'>Electronics</a></li>
+                            <li><a href='@Url.Action("Smartphone","Products")'>Smartphones</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Contact Us","Index","Contact")</li> 
+                </ul>
+                <div class="container">
+                    <ul class="nav navbar-nav navbar-right">
+                       
+                        @RenderSection("Logged", false)
+                        @RenderPage("NavRegister.cshtml")
+                        <li> <a href='@Url.Action("ViewCart", "Cart")'>My Cart &nbsp;<span class="glyphicon glyphicon-shopping-cart"></span> </a></li>
+                        <li>
+                            <form style="padding-top:8px;" id="search" method="post" action='@Url.Action("SearchItem","Home")'>
+                                <div class="form-inline">
+                                    <input type="text" class="form-control" name="search" placeholder="Search For Items" />
+                                </div>
+                            </form>
+                        </li>
+                        <li><a id="quickSearch">Search &nbsp;<span class="glyphicon glyphicon-search"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        @RenderBody()
+        </div>
+        <footer class="navbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h4>Navigation</h4>
+                                    <ul class="add-padding">
+                                        <li><a href='@Url.Action("Index","Home")'>Home</a></li>
+                                        <li><a href='@Url.Action("AboutUs","Home")'>About</a></li>
+                                        <li><a href='@Url.Action("Login","Home")'>Log in</a></li>
+                                        <li><a href='@Url.Action("Index","Products")'>Our Products</a></li>
+                                        <li><a href='@Url.Action("Index","Contact")'>Contact Us</a></li>
+                                        <li><a href='@Url.Action("Register","Customer")'>Register Now</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>Brand New Deals</h4>
+                                    <ul class="add-padding">
+                                        <li><a href="#">Iphone Watch</a></li>
+                                        <li><a href="#">Google Glass</a></li>
+                                        <li><a href="#">Macbook Air</a></li>
+                                        <li><a href="#">Lenovo laptop</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>Upcoming Sale Items</h4>
+                                    <ul class="add-padding">
+                                        <li><a href="#">Ps4</a></li>
+                                        <li><a href="#">Xbox One</a></li>
+                                        <li><a href="#">Samsung Phones</a></li>
+                                        <li><a href="#">Gaming Laptops</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-md-3">
+                        <br>
+                        <ul class="social">
+                            <li>Follow Us:</li>
+                            <li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                            <li><a href="https://www.facebook.com/matteo.sclafani?fref=ts"><i class="fa fa-facebook-official fa-2x"></i></a></li>
+                            <li><a href="https://www.instagram.com/"><i class="fa fa-instagram fa-2x"></i></a></li>
+                            <li><a href="https://www.instagram.com/"><i class="fa fa-pinterest fa-2x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    @* ===== Scripts goes Here ====*@
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/MyScript.js"></script>
+    @* ==== End ====  *@
+</body>
+</html>

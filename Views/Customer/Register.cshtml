@@ -1,0 +1,100 @@
+﻿@model WAndCAssignment.Models.Customers
+
+
+@{
+    ViewBag.Title = "Register";
+}
+<ol class="breadcrumb" style="margin-bottom:0;">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li class="active">Sign Up</li>
+</ol>
+
+@section Logged{
+    @if (@Session["MemberName"] != null)
+    {
+        <li>
+            <a>Welcome @Session["MemberName"]</a>
+        </li>
+    }
+}
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Sign In</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.Username, new { @class = "form-control", @placeholder = "username" })
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "password" })
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Sign In" />
+                }
+            </div>
+            <div class="modal-footer">
+                <div class="alert-danger"> @ViewData["error"]</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+@*  ==== Registration Page ====== *@
+<section id="register">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9" id="register-info">
+                <h1 class="text-center">Register And Start Buying Matteo Products</h1>
+                <h4 class="text-center">Powerful collaboration, code review, and code management for
+                open source and private projects. Public projects are always free. </h4>
+                <div class="alert-success">
+                    <h3>@ViewData["error"]</h3> 
+                </div>
+            </div>
+            <div class="col-md-3 bring-down">
+                @using (Html.BeginForm("Register", "Customer", FormMethod.Post))
+            {
+                  
+                     @Html.ValidationSummary(false,"", new { @class = "alert alert-danger" })
+                   
+
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "First Name" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                            </div>
+                  
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Username" })
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                    </div>
+                    <input type="submit" class="btn btn-danger btn-block" value="Register" />
+                }
+            </div>
+        </div>
+    </div>
+
+</section>
+@*  ==== End ===== *@

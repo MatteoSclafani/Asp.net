@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Comments";
+}
+
+
+
+
+<div id="comment-thank-you" class="text-center">
+
+    <h2>Thank You!</h2>
+
+        @Html.ActionLink("Home Page", "Index", "Home", new {@class="text-danger"})
+  
+    <hr />
+    <p class="text-warning">You Must Log In To View Comments</p>
+        @Html.ActionLink("Show All Feedback", "ShowFeedback", "Contact", new { @class = "text-danger" })
+
+</div>

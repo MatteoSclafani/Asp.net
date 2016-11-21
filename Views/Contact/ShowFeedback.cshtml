@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WAndCAssignment.Models.ContactModel>
+@{
+    ViewBag.Title = "ShowFeedback";
+}
+
+@if (Session["MemberName"] != null)
+{
+
+<div id="comments">
+
+    <h2>Customer Feedback</h2>
+    @foreach (var i in Model)
+    {
+        <div>
+            Customer Name: @i.Name <br />
+            Customer email: @i.Email<br />
+            Comments: @i.Comments <br />
+        </div>
+        <br />
+        <br />
+
+    }
+</div>
+}
+else{
+    Response.Redirect(@Url.Action("Login", "Home"));
+}

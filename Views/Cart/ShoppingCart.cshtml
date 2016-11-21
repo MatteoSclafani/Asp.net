@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "ShoppingCart";
+}
+@if(Session["MemberName"] == null)
+{
+    Response.Redirect(@Url.Action("Login", "Cart"));
+}
+
+
+
+
+<h2>ShoppingCart</h2>
+
